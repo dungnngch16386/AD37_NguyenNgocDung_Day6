@@ -12,13 +12,112 @@
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"/>
+        android:hint="Title"
+        android:maxLines="1"/>
 
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Description"/>
+        android:hint="Description"
+        android:maxLines="3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Remind me at:"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlue"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="14:20"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="04/03/2016"
+            android:textSize="30dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type:"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlue"/>
+        <Spinner
+            android:id="@+id/spType"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tags:"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlue"/>
+        <TextView
+            android:id="@+id/tvTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Android, VTC, FPT, Game"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weeks:"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlue"/>
+        <TextView
+            android:id="@+id/tvWeeks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Mon, Thu, Sat"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_new"
+        android:layout_marginTop="20dp"
+        android:text="Tune"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

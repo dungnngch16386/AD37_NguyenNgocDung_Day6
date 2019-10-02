@@ -71,4 +71,13 @@
         android:textSize="18dp"
         android:background="@drawable/button_new2"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="7dp"
+        android:text="Forget your password?"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:clickable="true"/>
+
 </LinearLayout>
