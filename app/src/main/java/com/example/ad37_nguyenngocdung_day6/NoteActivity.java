@@ -2,8 +2,12 @@ package com.example.ad37_nguyenngocdung_day6;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.animation.TimeInterpolator;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +21,13 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class NoteActivity extends AppCompatActivity {
+public class NoteActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     EditText etTitle, etDescription;
     TextView tvTime, tvDate, tvTags, tvWeeks;
@@ -29,6 +35,22 @@ public class NoteActivity extends AppCompatActivity {
     Button btnTune;
 
     ArrayList<String> listType;
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        tvTime.setText(i + ":" + i1);
+    }
+
+    /*public void showDatePickerDialog(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +74,22 @@ public class NoteActivity extends AppCompatActivity {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, listType);
         spType.setAdapter(arrayAdapter);
+
+        tvTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
+
+        tvDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //showDatePickerDialog();
+            }
+        });
+
 
         tvTags.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +129,7 @@ public class NoteActivity extends AppCompatActivity {
                 boolean[] isChecks = {true, true, false, false, false, true, false};
 
                 AlertDialog alertDialog = new AlertDialog.Builder(NoteActivity.this)
-                        .setTitle("Choose tags")
+                        .setTitle("Choose weeks")
                         .setMultiChoiceItems(group, isChecks, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
